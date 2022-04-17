@@ -9,9 +9,13 @@ require(game.PluginGuiService.NotificationService.DockWidgetGUI.Module.MainModul
 ```
 
 That's it. Although, it requires 4 parameters, let me explain what each one is:
+
 Parameter 1: Notification title (string)
+
 Parameter 2: Notification icon (string, use this: 'http://www.roblox.com/asset/?id=(imageidhere)'
+
 Parameter 3: Notification Description (string, required)
+
 Parameter 4: Notification Duration (string or number)
 
 Parameters 1, 2 and 4 will automatically revert to a default if it is not submitted.
