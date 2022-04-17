@@ -37,6 +37,12 @@ local widgetInfo = plugin:CreateDockWidgetPluginGui(
 	)
 )
 
+if game.CoreGui:FindFirstChild("NotificationServiceUI") then
+	game.CoreGui.NotificationServiceUI:Destroy()
+else
+	return
+end
+
 local sidebardisplay = script.Parent.NotificationServiceUI:Clone()
 sidebardisplay.Parent = game.CoreGui
 sidebardisplay.Archivable = false
@@ -69,7 +75,7 @@ BaseGui.Parent = widgetInfo
 				<string name="Name">Version</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<string name="Value">v0.1a</string>
+				<string name="Value">v0.2a</string>
 			</Properties>
 		</Item>
 		<Item class="Folder" referent="RBX6A8A83DE837E423AA5DDECC1CE8CAF8C">
@@ -551,7 +557,7 @@ BaseGui.Parent = widgetInfo
 							<bool name="Disabled">false</bool>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">Script</string>
-							<string name="ScriptGuid">{6DDFA0D9-51F9-43EB-BB6D-99B2F104729A}</string>
+							<string name="ScriptGuid">{3F5159BF-92FD-45EC-AF85-7F196D303747}</string>
 							<ProtectedString name="Source"><![CDATA[local par = script.Parent
 local ib = par.Frame
 local core = par.Parent.Parent
@@ -936,7 +942,7 @@ end)]]></ProtectedString>
 							<bool name="Disabled">false</bool>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">Script</string>
-							<string name="ScriptGuid">{EB48A7CC-2B5F-483B-AB37-02838C190CC4}</string>
+							<string name="ScriptGuid">{BBB001E0-446D-49DA-BCB2-C384A000FF67}</string>
 							<ProtectedString name="Source"><![CDATA[local par = script.Parent
 local ib = par.Frame
 local core = par.Parent.Parent
@@ -1322,7 +1328,7 @@ end)
 							<bool name="Disabled">false</bool>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">Script</string>
-							<string name="ScriptGuid">{079A426A-A301-4274-80B6-5D9DDAFFC4A0}</string>
+							<string name="ScriptGuid">{E8AD900A-2C08-4949-A136-F28BE46E0EA1}</string>
 							<ProtectedString name="Source"><![CDATA[local par = script.Parent
 local ib = par.Frame
 local core = par.Parent.Parent
@@ -1477,7 +1483,7 @@ end)]]></ProtectedString>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
 						<string name="Name">Script</string>
-						<string name="ScriptGuid">{4CDDB24D-39EC-468E-B9BB-6F7D3243E26E}</string>
+						<string name="ScriptGuid">{D5788540-743E-4B4E-AB67-62D8D98F1883}</string>
 						<ProtectedString name="Source"><![CDATA[--[[
 local chs = game:GetService("ChangeHistoryService")
 chs:SetWaypoint("disablecoreguifunctions pre-update check")
@@ -2458,7 +2464,7 @@ end
 							<bool name="Disabled">false</bool>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">Script</string>
-							<string name="ScriptGuid">{107B5958-3253-4384-8BE8-23D065B3D3D2}</string>
+							<string name="ScriptGuid">{2BDC0998-ED65-4100-AA9C-8E7027CC6AC5}</string>
 							<ProtectedString name="Source"><![CDATA[local Players = game:GetService("Players")
 local plr = Players.LocalPlayer
 local SS = game:GetService('StudioService')
@@ -3147,7 +3153,7 @@ end]]></ProtectedString>
 								<bool name="Disabled">false</bool>
 								<Content name="LinkedSource"><null></null></Content>
 								<string name="Name">Script</string>
-								<string name="ScriptGuid">{7542371F-6086-4DE1-89F4-8F60FF0B9072}</string>
+								<string name="ScriptGuid">{3AE6E1C3-EA22-40A5-9E7E-6B624E6BA0D8}</string>
 								<ProtectedString name="Source"><![CDATA[local p = script.Parent
 
 p.Text = 'Version: ' .. p.Parent.Parent.Parent.Parent.Version.Value]]></ProtectedString>
@@ -3248,7 +3254,7 @@ p.Text = 'Version: ' .. p.Parent.Parent.Parent.Parent.Version.Value]]></Protecte
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<Content name="LinkedSource"><null></null></Content>
 						<string name="Name">MainModule</string>
-						<string name="ScriptGuid">{647A0847-876C-4C69-BF23-DBA82C9507DC}</string>
+						<string name="ScriptGuid">{F1B4212E-F7DD-4822-A79A-9CE324768836}</string>
 						<ProtectedString name="Source"><![CDATA[local NotificationService = {}
 function NotificationService.Send(Title:string, Icon:string, Description:string, Duration:string|number)
 	if Title == "" or Title == nil then
@@ -3279,7 +3285,7 @@ function NotificationService.Send(Title:string, Icon:string, Description:string,
 	local NewNotification = Instance.new("Frame")
 	NewNotification.Parent = CoreGUILocation
 	NewNotification.Name = Title
-	NewNotification.Size = UDim2.new(0, 268, 0, 128)
+	NewNotification.Size = UDim2.new(0, 268, 0, 48)
 	NewNotification.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
 	NewNotification.Archivable = false
 	
@@ -3313,11 +3319,25 @@ function NotificationService.Send(Title:string, Icon:string, Description:string,
 	NotifText.Text = Description
 	NotifText.TextScaled = true
 	NotifText.Position = UDim2.new(0, 4, 0, 24)
-	NotifText.Size = UDim2.new(0, 260, 0, 100)
+	NotifText.Size = UDim2.new(0, 260, 0, 16)
 	NotifText.BackgroundTransparency = 1
 	NotifText.TextXAlignment = Enum.TextXAlignment.Left
 	NotifText.TextYAlignment = Enum.TextYAlignment.Top
 	NotifText.TextColor3 = Color3.fromRGB(255, 255, 255)
+	
+	-- Experimental
+	
+	NotifText.AutomaticSize = Enum.AutomaticSize.Y
+	NewNotification.AutomaticSize = Enum.AutomaticSize.Y
+	
+	local TextSize = Instance.new("UITextSizeConstraint")
+	TextSize.MaxTextSize = 16
+	TextSize.MinTextSize = 8
+	TextSize.Parent = NotifText
+	
+	local TextPadding = Instance.new("UIPadding")
+	TextPadding.PaddingBottom = UDim.new(0, 4)
+	TextPadding.Parent = NotifText
 	
 	task.wait(Duration)
 	
@@ -3431,7 +3451,7 @@ return NotificationService
 						<UDim2 name="CanvasSize">
 							<XS>0</XS>
 							<XO>0</XO>
-							<YS>2</YS>
+							<YS>0</YS>
 							<YO>0</YO>
 						</UDim2>
 						<bool name="ClipsDescendants">false</bool>
